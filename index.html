@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sippline — Drinking Shields</title>
+<style>
+  :root{
+    --orange-1: #ff7e40;
+    --orange-2: #ff521d;
+    --ink: #1b1408;
+    --cream: #fff4ec;
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  body{
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+  }
+
+  .hero{
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(120deg, var(--orange-1) 0%, var(--orange-2) 100%);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Navbar */
+  .navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 56px;
+    z-index: 3;
+  }
+
+  .logo{
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .nav-links{
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a{
+    color: rgba(255,255,255,0.92);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+  }
+
+  .nav-links a:hover{ opacity: 0.7; }
+
+  .btn-pill{
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+
+  .btn-pill:hover{ transform: translateY(-2px); background:#000; }
+
+  /* Content area */
+  .content{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 0 56px;
+  }
+
+  .text-block{
+    max-width: 560px;
+    z-index: 3;
+  }
+
+  .text-block h1{
+    color: #fff;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    margin-bottom: 22px;
+    text-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  }
+
+  .text-block p{
+    color: rgba(255,255,255,0.92);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    margin-bottom: 34px;
+    max-width: 460px;
+  }
+
+  /* Diamond image frame using clip-path — right side, vertically centered */
+  .image-wrap{
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40vw;
+    max-width: 600px;
+    aspect-ratio: 1 / 1;
+    z-index: 2;
+  }
+
+  .diamond-frame{
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  .diamond-frame img{
+    position: absolute;
+    inset: 14px;
+    width: calc(100% - 28px);
+    height: calc(100% - 28px);
+    object-fit: cover;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  }
+
+  /* Corner accent cutouts — small white triangles along the far right edge */
+  .accent{
+    position: absolute;
+    right: 0;
+    clip-path: polygon(100% 0%, 100% 100%, 0% 50%);
+    background: rgba(255,255,255,0.85);
+    z-index: 1;
+  }
+
+  .accent.top{ width: 130px; height: 170px; top: 0; }
+  .accent.bottom{ width: 110px; height: 150px; bottom: 0; }
+
+  @media (max-width: 900px){
+    .navbar{ padding: 20px 24px; flex-wrap: wrap; gap: 16px; }
+    .nav-links{ display: none; }
+    .content{ flex-direction: column; padding: 40px 24px 60px; text-align: left; }
+    .text-block{ max-width: 100%; }
+    .text-block h1{ font-size: 2.1rem; }
+    .image-wrap{
+      position: relative;
+      right: auto;
+      top: auto;
+      transform: none;
+      width: 78vw;
+      margin: 40px auto 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="accent top"></div>
+    <div class="accent bottom"></div>
+
+    <nav class="navbar">
+      <div class="logo">Sippline</div>
+      <ul class="nav-links">
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Blogs</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <a href="#" class="btn-pill">Buy Now</a>
+    </nav>
+
+    <div class="content">
+      <div class="text-block">
+        <h1>Sippline drinking shields &mdash; The &ldquo;Glass ka Mask&rdquo;</h1>
+        <p>Sippline Drinking Shield aims to protect the user from not just such fatal diseases but, also the mild ones such as common flu. Sippline drinking shield does the same job a face mask does, albeit differently.</p>
+        <a href="#" class="btn-pill">Buy the Glass Mask!</a>
+      </div>
+
+      <div class="image-wrap">
+        <div class="diamond-frame">
+          <img src="https://images.unsplash.com/photo-1583332526669-4b3d96cc7eee?fm=jpg&q=80&w=900&auto=format&fit=crop" alt="Man in a black suit holding a drinking glass">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
